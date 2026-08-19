@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HumanKind Technologies — AI-Enabled HR for Canadian Teams</title>
+<meta name="description" content="Recruitment, time tracking, documents, and people — one AI-enabled HR platform built for growing Canadian businesses.">
+<link rel="icon" href="assets/logo-black.png">
+<style>
+/* ============================================================
+   HUMANKIND TECHNOLOGIES — LANDING PAGE
+   Design language: restraint, scale, whitespace, precision.
+   Black / white / blue. Product-first.
+   ============================================================ */
+
+:root {
+  /* surfaces */
+  --white: #FFFFFF;
+  --grey-bg: #F5F5F7;
+  --black: #000000;
+  --near-black: #1D1D1F;
+
+  /* type */
+  --ink: #1D1D1F;
+  --ink-soft: #6E6E73;
+  --ink-faint: #86868B;
+  --on-black: #F5F5F7;
+  --on-black-soft: #A1A1A6;
+
+  /* blue */
+  --blue: #0071E3;
+  --blue-hover: #0077ED;
+  --blue-light: #2997FF;
+
+  /* lines */
+  --line: #D2D2D7;
+  --line-soft: #E8E8ED;
+
+  --font: Calibri, Candara, "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* mockup interior */
+  --m-chrome: #1D1D1F;
+  --m-paper: #FFFFFF;
+  --m-panel: #F5F5F7;
+  --m-ink: #1D1D1F;
+  --m-muted: #6E6E73;
+  --m-line: #E3E3E8;
+  --m-blue: #0071E3;
+  --m-blue-soft: #EBF4FE;
+  --m-good: #00875A;
+  --m-good-soft: #E6F5EF;
+  --m-warn: #B25E00;
+  --m-warn-soft: #FDF2E4;
+  --m-purple: #6E3BD1;
+  --m-purple-soft: #F0EAFC;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.47;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ================= NAV ================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 76px;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+}
+.nav-in {
+  max-width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.nav-logo { height: 46px; width: auto; flex: none; }
+.nav-links { display: flex; gap: 30px; margin-left: auto; }
+.nav-links a {
+  font-size: 15px;
+  color: var(--ink);
+  opacity: 0.82;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { opacity: 1; color: var(--blue); }
+
+/* ================= BUTTONS ================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 980px;
+  padding: 12px 26px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.btn-blue { background: var(--blue); color: #fff; }
+.btn-blue:hover { background: var(--blue-hover); }
+.btn-outline { border-color: var(--blue); color: var(--blue); background: transparent; }
+.btn-outline:hover { background: var(--blue); color: #fff; }
+.btn-white { background: #fff; color: var(--near-black); }
+.btn-white:hover { background: #E8E8ED; }
+.btn-sm { font-size: 15px; padding: 9px 20px; }
+
+.link {
+  color: var(--blue);
+  font-size: 19px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.link:hover { text-decoration: underline; }
+.link::after { content: "\203A"; font-size: 21px; line-height: 1; }
+.link-lg { font-size: 21px; }
+
+/* ================= BANDS ================= */
+.band { padding: 110px 28px; }
+.band-grey { background: var(--grey-bg); }
+.band-black { background: var(--black); color: var(--on-black); }
+.band-black .eyebrow { color: var(--blue-light); }
+.band-black .lead { color: var(--on-black-soft); }
+.band-tight { padding-top: 80px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.wrap-narrow { max-width: 780px; margin: 0 auto; }
+
+/* ================= TYPE ================= */
+.eyebrow {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+h1.display {
+  font-size: clamp(42px, 6.4vw, 78px);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.05;
+}
+h2.display {
+  font-size: clamp(34px, 4.8vw, 58px);
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  line-height: 1.07;
+}
+h3.display {
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.09;
+}
+.lead {
+  font-size: clamp(18px, 1.7vw, 23px);
+  color: var(--ink-soft);
+  line-height: 1.45;
+  font-weight: 400;
+}
+.center { text-align: center; }
+.head-block { max-width: 720px; margin: 0 auto 60px; text-align: center; }
+.head-block .lead { margin-top: 18px; }
+.cta-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cta-row.center { justify-content: center; }
+.note {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 16px;
+}
+.band-black .note { color: #6E6E73; }
+
+/* ================= HERO ================= */
+.hero {
+  padding: 150px 28px 0;
+  text-align: center;
+  background: var(--white);
+}
+.hero .lead { max-width: 620px; margin: 22px auto 34px; }
+.hero-shot {
+  max-width: 940px;
+  margin: 76px auto 0;
+  padding-bottom: 110px;
+}
+
+/* ================= WINDOW ================= */
+.window {
+  background: var(--m-paper);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 22px 56px -14px rgba(0,0,0,0.22);
+}
+.band-black .window,
+.window-on-dark {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 30px 70px -16px rgba(0,0,0,0.7);
+}
+.titlebar {
+  background: var(--m-chrome);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+}
+.dots { display: flex; gap: 5px; }
+.dots span { width: 8px; height: 8px; border-radius: 50%; background: #48484A; }
+.tb-mark {
+  width: 15px; height: 15px;
+  margin-left: 5px;
+  overflow: hidden;
+  position: relative;
+  flex: none;
+}
+.tb-mark img {
+  position: absolute; top: 0; left: -0.5px;
+  height: 15px; width: auto; max-width: none;
+}
+.tb-name {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: #E8E8ED;
+}
+
+/* ================= SCREEN INTERIOR ================= */
+.screen {
+  background: var(--m-panel);
+  padding: 16px;
+  font-size: 11px;
+  color: var(--m-ink);
+  line-height: 1.45;
+}
+.screen-lg { padding: 20px; font-size: 12px; }
+.srow { display: flex; gap: 13px; }
+.scol { flex: 1; min-width: 0; }
+.sidebar {
+  width: 84px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 11px;
+  border-right: 1px solid var(--m-line);
+}
+.screen-lg .sidebar { width: 100px; }
+.sitem {
+  font-size: 9.5px;
+  color: var(--m-muted);
+  padding: 5px 7px;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.screen-lg .sitem { font-size: 10.5px; padding: 6px 8px; }
+.sitem.active { background: var(--m-blue-soft); color: var(--m-blue); font-weight: 700; }
+.scard {
+  background: var(--m-paper);
+  border: 1px solid var(--m-line);
+  border-radius: 9px;
+  padding: 11px;
+}
+.scard + .scard { margin-top: 9px; }
+.scard h4 {
+  font-size: 10.5px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.screen-lg .scard h4 { font-size: 11.5px; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 2.5px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pill.blue { background: var(--m-blue-soft); color: var(--m-blue); }
+.pill.good { background: var(--m-good-soft); color: var(--m-good); }
+.pill.warn { background: var(--m-warn-soft); color: var(--m-warn); }
+.pill.purple { background: var(--m-purple-soft); color: var(--m-purple); }
+.pill.grey { background: #EFEFF2; color: var(--m-muted); }
+.avatar {
+  width: 21px; height: 21px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 700; color: #fff; flex: none;
+}
+.avatar.sm { width: 18px; height: 18px; font-size: 7px; }
+.avatar.lg { width: 30px; height: 30px; font-size: 11px; }
+.mut { color: var(--m-muted); }
+
+/* ================= FEATURE ROW ================= */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  gap: 72px;
+  align-items: center;
+}
+.feature + .feature { margin-top: 130px; }
+.feature.flip .f-text { order: 2; }
+.feature.flip .f-shot { order: 1; }
+.f-text .lead { margin: 18px 0 26px; }
+.f-list { list-style: none; }
+.f-list li {
+  font-size: 16px;
+  color: var(--ink-soft);
+  padding: 13px 0;
+  border-top: 1px solid var(--line-soft);
+  line-height: 1.45;
+}
+.f-list li b { color: var(--ink); font-weight: 600; }
+.band-black .f-list li { border-color: rgba(255,255,255,0.14); color: var(--on-black-soft); }
+.band-black .f-list li b { color: var(--on-black); }
+
+/* ================= MODULES ================= */
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.mod {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  min-height: 232px;
+  transition: transform 0.3s cubic-bezier(0.2,0.7,0.3,1), box-shadow 0.3s;
+}
+.mod:hover { transform: translateY(-3px); box-shadow: 0 12px 34px -10px rgba(0,0,0,0.16); }
+.mod-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+.mod-status.live { background: #E6F5EF; color: #00875A; }
+.mod-status.soon { background: #EFEFF2; color: var(--ink-soft); }
+.mod-status .d { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.mod h4 {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+.mod p { font-size: 16px; color: var(--ink-soft); line-height: 1.5; }
+.mod.dim { background: #EDEDF0; }
+.mod.dim h4 { color: var(--ink-soft); }
+
+/* ================= AI CARDS ================= */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.ai-card { display: flex; flex-direction: column; }
+.ai-card .window { flex: 1; }
+.ai-cap { margin-top: 22px; }
+.ai-cap h4 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 7px;
+}
+.ai-cap p { font-size: 15.5px; color: var(--on-black-soft); line-height: 1.45; }
+
+/* AI chat */
+.chat { display: flex; flex-direction: column; gap: 8px; }
+.bubble {
+  max-width: 88%;
+  padding: 9px 11px;
+  border-radius: 12px;
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+.bubble.user {
+  align-self: flex-end;
+  background: var(--m-blue);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.bubble.ai {
+  align-self: flex-start;
+  background: var(--m-paper);
+  border: 1px solid var(--m-line);
+  border-bottom-left-radius: 4px;
+  width: 100%;
+}
+.ai-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--m-purple);
+  margin-bottom: 5px;
+}
+.prow { display: flex; align-items: center; gap: 7px; padding: 4px 0; }
+.prow .nm { font-weight: 700; font-size: 9.5px; }
+.prow .mt { font-size: 8.5px; color: var(--m-muted); }
+.chips { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+.chip {
+  background: var(--m-blue-soft);
+  color: var(--m-blue);
+  font-weight: 700;
+  font-size: 8.5px;
+  padding: 4px 9px;
+  border-radius: 7px;
+}
+.nav-flash {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  color: var(--m-muted);
+  padding: 5px 0;
+}
+.nav-flash .arrow { color: var(--m-blue); font-weight: 800; }
+
+/* survey summary bits */
+.score-row { display: flex; align-items: baseline; gap: 7px; margin: 3px 0 8px; }
+.score-row b { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.score-row span { font-size: 9px; color: var(--m-muted); }
+.theme { padding: 5px 0; font-size: 9.5px; }
+.theme + .theme { border-top: 1px solid var(--m-line); }
+.theme .th { display: flex; justify-content: space-between; gap: 8px; }
+.tbar { height: 3px; border-radius: 2px; background: var(--m-line); margin-top: 4px; overflow: hidden; }
+.tbar i { display: block; height: 100%; border-radius: 2px; background: var(--m-blue); }
+.tbar i.warn { background: var(--m-warn); }
+
+/* ================= SPECIFIC SCREENS ================= */
+/* dashboard */
+.dash-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.dash-top h3 { font-size: 13px; font-weight: 700; }
+.dash-top span { font-size: 10px; color: var(--m-muted); }
+.notice { display: flex; gap: 8px; align-items: flex-start; padding: 7px 0; }
+.notice + .notice { border-top: 1px solid var(--m-line); }
+.ndot { width: 5px; height: 5px; border-radius: 50%; background: var(--m-blue); flex: none; margin-top: 5px; }
+.ntxt { font-size: 10px; line-height: 1.4; }
+.ntxt small { display: block; color: var(--m-muted); font-size: 9px; margin-top: 1px; }
+.stat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+.stat { background: var(--m-panel); border: 1px solid var(--m-line); border-radius: 7px; padding: 8px 4px; text-align: center; }
+.stat b { display: block; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+.stat span { font-size: 7.5px; color: var(--m-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+
+/* documents */
+.doc-head { display: flex; align-items: center; gap: 9px; padding-bottom: 10px; border-bottom: 1px solid var(--m-line); margin-bottom: 10px; }
+.doc-icon { width: 27px; height: 33px; border-radius: 4px; background: #FAFAFC; border: 1px solid var(--m-line); flex: none; position: relative; overflow: hidden; }
+.doc-icon::before { content:""; position:absolute; top:7px; left:5px; right:5px; height:1px; background: var(--m-line); box-shadow: 0 4px 0 var(--m-line), 0 8px 0 var(--m-line), 0 12px 0 var(--m-line); }
+.doc-meta .dt { font-size: 11px; font-weight: 700; }
+.doc-meta .ds { font-size: 9px; color: var(--m-muted); }
+.sig-track { height: 4px; border-radius: 2px; background: var(--m-line); overflow: hidden; margin: 5px 0 11px; }
+.sig-fill { height: 100%; background: var(--m-good); border-radius: 2px; }
+.signer { display: flex; align-items: center; gap: 8px; padding: 8px 0; }
+.signer + .signer { border-top: 1px solid var(--m-line); }
+.signer .info { flex: 1; min-width: 0; }
+.signer .info b { font-size: 10px; display: block; }
+.signer .info small { font-size: 8.5px; color: var(--m-muted); }
+
+/* time tracking */
+.clock-row { display: flex; align-items: center; gap: 9px; }
+.clock-btn { background: var(--m-good); color: #fff; font-size: 9.5px; font-weight: 700; padding: 7px 13px; border-radius: 7px; }
+.clock-btn.out { background: #FDF2E4; color: var(--m-warn); }
+.clock-time { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.sched { display: grid; grid-template-columns: 46px repeat(5, 1fr); font-size: 8px; }
+.sched .hd { text-align: center; padding: 0 2px 5px; color: var(--m-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.sched .rl { padding: 7px 4px 7px 0; font-size: 8.5px; border-top: 1px solid var(--m-line); display: flex; align-items: center; gap: 4px; }
+.sched .cell { border-top: 1px solid var(--m-line); padding: 5px 2px; }
+.shift { border-radius: 4px; background: var(--m-blue-soft); color: var(--m-blue); font-size: 7px; font-weight: 700; text-align: center; padding: 4px 1px; }
+.shift.off { background: #EFEFF2; color: var(--m-muted); }
+.shift.pto { background: var(--m-purple-soft); color: var(--m-purple); }
+.bal-row { display: flex; gap: 7px; }
+.bal { flex: 1; background: var(--m-panel); border: 1px solid var(--m-line); border-radius: 7px; padding: 8px 5px; text-align: center; }
+.bal b { display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+.bal span { font-size: 7.5px; color: var(--m-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* recruitment */
+.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding-bottom: 9px; border-bottom: 1px solid var(--m-line); margin-bottom: 9px; }
+.job-head .jt { font-size: 11.5px; font-weight: 700; }
+.job-head .js { font-size: 9px; color: var(--m-muted); margin-top: 1px; }
+.pipe { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; }
+.pcol { min-width: 0; }
+.ph { font-size: 7.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--m-muted); margin-bottom: 6px; display: flex; justify-content: space-between; gap: 3px; }
+.pcard { background: var(--m-paper); border: 1px solid var(--m-line); border-radius: 7px; padding: 7px; margin-bottom: 5px; }
+.pcard .pn { font-size: 8.5px; font-weight: 700; }
+.pcard .pr { font-size: 7.5px; color: var(--m-muted); margin-top: 1px; }
+.pcard .pm { margin-top: 5px; }
+
+/* kudos */
+.kudo { display: flex; gap: 9px; padding: 9px 0; }
+.kudo + .kudo { border-top: 1px solid var(--m-line); }
+.kudo .kt b { font-size: 10px; }
+.kudo .kt p { font-size: 9.5px; color: var(--m-muted); margin: 2px 0 5px; line-height: 1.4; }
+.val { font-size: 8px; font-weight: 800; color: var(--m-blue); letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* roles */
+.rchips { display: flex; gap: 5px; margin-bottom: 11px; flex-wrap: wrap; }
+.rchip { font-size: 8.5px; font-weight: 700; padding: 4.5px 10px; border-radius: 999px; background: var(--m-panel); color: var(--m-muted); border: 1px solid var(--m-line); }
+.rchip.on { background: var(--m-ink); color: #fff; border-color: var(--m-ink); }
+.perm { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; font-size: 10px; }
+.perm + .perm { border-top: 1px solid var(--m-line); }
+.perm small { display: block; font-size: 8.5px; color: var(--m-muted); }
+.sw { width: 26px; height: 15px; border-radius: 999px; background: #DCDCE1; position: relative; flex: none; }
+.sw.on { background: var(--m-good); }
+.sw::after { content:""; position:absolute; width: 11px; height: 11px; border-radius: 50%; background:#fff; top: 2px; left: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+.sw.on::after { left: auto; right: 2px; }
+
+/* reports */
+.rtable { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+.rtable th { text-align: left; font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--m-muted); padding: 0 5px 7px; font-weight: 800; }
+.rtable td { padding: 6px 5px; border-top: 1px solid var(--m-line); font-variant-numeric: tabular-nums; }
+.rtable td.num { text-align: right; font-weight: 600; }
+.rtotal { display: flex; justify-content: space-between; margin-top: 9px; padding-top: 9px; border-top: 1.5px solid var(--m-ink); font-size: 11px; font-weight: 800; }
+.filters { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+.filt { font-size: 8px; padding: 4.5px 9px; border-radius: 6px; border: 1px solid var(--m-line); background:#fff; color: var(--m-muted); }
+.filt.on { background: var(--m-blue-soft); color: var(--m-blue); border-color: #BBDBFB; font-weight: 700; }
+
+/* ================= TWO-UP ================= */
+.two-up { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+.up-card { background: var(--white); border-radius: 20px; padding: 34px 30px 0; overflow: hidden; }
+.band-grey .up-card { background: #fff; }
+.up-card h4 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+.up-card p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 26px; }
+.up-shot { margin: 0 -6px -18px; }
+
+/* ================= CLOSING ================= */
+.closing { text-align: center; padding: 130px 28px; }
+.closing .lead { max-width: 540px; margin: 20px auto 34px; }
+
+/* ================= FOOTER ================= */
+.footer { background: var(--grey-bg); padding: 44px 28px; border-top: 1px solid var(--line); }
+.foot-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+.foot-logo { height: 34px; width: auto; opacity: 0.75; }
+.footer p { font-size: 13px; color: var(--ink-faint); }
+
+/* ================= REVEAL ================= */
+.rv { opacity: 0; transform: translateY(22px); transition: opacity 0.8s cubic-bezier(0.28,0.11,0.32,1), transform 0.8s cubic-bezier(0.28,0.11,0.32,1); }
+.rv.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rv { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
+  .ai-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 46px; }
+  .feature { grid-template-columns: 1fr; gap: 44px; }
+  .feature.flip .f-text { order: 1; }
+  .feature.flip .f-shot { order: 2; }
+  .feature + .feature { margin-top: 92px; }
+  .two-up { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .nav { height: 64px; }
+  .nav-in { padding: 0 18px; gap: 14px; }
+  .nav-logo { height: 36px; }
+  .nav-links { display: none; }
+  .band { padding: 74px 20px; }
+  .hero { padding: 104px 20px 0; }
+  .hero-shot { margin-top: 50px; padding-bottom: 74px; }
+  .mod-grid { grid-template-columns: 1fr; }
+  .mod { padding: 30px 26px; min-height: 0; }
+  .mod h4 { font-size: 24px; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row .btn { width: 100%; }
+  .cta-row.center { align-items: center; }
+  .closing { padding: 84px 20px; }
+  .screen { padding: 12px; }
+  .sidebar, .screen-lg .sidebar { width: 68px; }
+  .sitem, .screen-lg .sitem { font-size: 8.5px; padding: 4px 5px; }
+  .pipe { grid-template-columns: repeat(2,1fr); }
+  .up-card { padding: 28px 22px 0; }
+  .foot-in { justify-content: center; text-align: center; }
+  .dash-top { flex-direction: column; align-items: flex-start; gap: 1px; }
+  .screen-lg { padding: 14px; }
+  .screen-lg .sitem { font-size: 9px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#top"><img class="nav-logo" src="assets/logo-black.png" alt="HumanKind Technologies"></a>
+    <div class="nav-links">
+      <a href="#modules">Modules</a>
+      <a href="#ai">AI</a>
+      <a href="#recruitment">Recruitment</a>
+      <a href="#time">Time Tracking</a>
+      <a href="#documents">Documents</a>
+    </div>
+    <a class="btn btn-blue btn-sm" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <p class="eyebrow">HumanKind Technologies</p>
+  <h1 class="display">One system.<br>The HUMANKIND way to HR.</h1>
+  <p class="lead">Recruitment, time tracking, documents, and people — unified in one AI-enabled platform built for growing Canadian businesses.</p>
+  <div class="cta-row center">
+    <a class="btn btn-blue" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+    <a class="link link-lg" href="#modules">See what's included</a>
+  </div>
+  <p class="note">Demo booking flow not yet wired — button opens email for now</p>
+
+  <div class="hero-shot rv">
+    <div class="window">
+      <div class="titlebar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+        <span class="tb-name">HUMANKIND</span>
+      </div>
+      <div class="screen screen-lg">
+        <div class="srow">
+          <div class="sidebar">
+            <div class="sitem active">Dashboard</div>
+            <div class="sitem">People</div>
+            <div class="sitem">Recruitment</div>
+            <div class="sitem">Time Tracking</div>
+            <div class="sitem">Documents</div>
+            <div class="sitem">Kudos</div>
+            <div class="sitem">Reports</div>
+          </div>
+          <div class="scol">
+            <div class="scard">
+              <div class="dash-top">
+                <h3>Good morning, Sarah.</h3>
+                <span>Monday, September 16</span>
+              </div>
+              <div class="notice">
+                <span class="ndot"></span>
+                <div class="ntxt">Time-off request from <b>James Rivera</b><small>Sep 23–27 · Awaiting your approval</small></div>
+              </div>
+              <div class="notice">
+                <span class="ndot"></span>
+                <div class="ntxt">Offer accepted — <b>Priya Nair</b>, Senior Analyst<small>Ready to move into onboarding</small></div>
+              </div>
+              <div class="notice">
+                <span class="ndot"></span>
+                <div class="ntxt">Engagement survey closes Friday<small>31 of 47 responses collected</small></div>
+              </div>
+            </div>
+            <div class="scard">
+              <h4>Team Snapshot</h4>
+              <div class="stat-grid">
+                <div class="stat"><b>47</b><span>Active</span></div>
+                <div class="stat"><b>3</b><span>On Leave</span></div>
+                <div class="stat"><b>5</b><span>Open Roles</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= AI ================= -->
+<section class="band band-black" id="ai">
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="eyebrow">AI-Enabled</p>
+      <h2 class="display">Ask. And it's done.</h2>
+      <p class="lead">AI isn't a bolt-on chatbot sitting in the corner — it's wired through every module. Ask a question, request a summary, or tell it where to go. It reads your live HR data and acts on it.</p>
+    </div>
+
+    <div class="ai-grid">
+      <!-- AI 1: navigate -->
+      <div class="ai-card rv">
+        <div class="window window-on-dark">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="chat">
+              <div class="bubble user">Open Priya Nair's profile</div>
+              <div class="bubble ai">
+                <div class="ai-tag">◆ ASSISTANT</div>
+                <div class="nav-flash"><span class="arrow">→</span> People · Profiles · Priya Nair</div>
+                <div class="prow" style="border-top:1px solid var(--m-line);padding-top:8px;">
+                  <div class="avatar lg" style="background:#0071E3;">PN</div>
+                  <div>
+                    <div class="nm" style="font-size:11px;">Priya Nair</div>
+                    <div class="mt">Senior Analyst · Started Sep 16</div>
+                  </div>
+                </div>
+                <div class="chips">
+                  <span class="chip">View documents</span>
+                  <span class="chip">Time off</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cap">
+          <h4>It navigates for you</h4>
+          <p>Say where you want to go in plain language. No menu-hunting, no six clicks deep.</p>
+        </div>
+      </div>
+
+      <!-- AI 2: summarize survey -->
+      <div class="ai-card rv">
+        <div class="window window-on-dark">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="chat">
+              <div class="bubble user">Summarize the engagement survey</div>
+              <div class="bubble ai">
+                <div class="ai-tag">◆ ASSISTANT</div>
+                <div class="score-row"><b>4.2</b><span>/ 5 overall · 31 responses</span></div>
+                <div class="theme">
+                  <div class="th"><span>Manager support</span><b>4.6</b></div>
+                  <div class="tbar"><i style="width:92%"></i></div>
+                </div>
+                <div class="theme">
+                  <div class="th"><span>Work–life balance</span><b>4.4</b></div>
+                  <div class="tbar"><i style="width:88%"></i></div>
+                </div>
+                <div class="theme">
+                  <div class="th"><span>Career growth</span><b>3.1</b></div>
+                  <div class="tbar"><i class="warn" style="width:62%"></i></div>
+                </div>
+                <div style="font-size:9px;color:var(--m-muted);margin-top:8px;line-height:1.45;">
+                  Career growth is the clear outlier — mentioned in 14 of 31 written comments.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cap">
+          <h4>It reads the data for you</h4>
+          <p>Survey results, headcount trends, leave patterns — summarized into what actually matters.</p>
+        </div>
+      </div>
+
+      <!-- AI 3: answer + act -->
+      <div class="ai-card rv">
+        <div class="window window-on-dark">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="chat">
+              <div class="bubble user">Who's off next week?</div>
+              <div class="bubble ai">
+                <div class="ai-tag">◆ ASSISTANT</div>
+                <div style="font-size:9.5px;margin-bottom:3px;">Three people have approved time off:</div>
+                <div class="prow">
+                  <div class="avatar sm" style="background:#0071E3;">JR</div>
+                  <div><div class="nm">James Rivera</div><div class="mt">Mon–Fri · Vacation</div></div>
+                </div>
+                <div class="prow">
+                  <div class="avatar sm" style="background:#6E3BD1;">DK</div>
+                  <div><div class="nm">Dana Kowalski</div><div class="mt">Mon–Wed · Personal</div></div>
+                </div>
+                <div class="prow">
+                  <div class="avatar sm" style="background:#00875A;">AC</div>
+                  <div><div class="nm">Alex Chen</div><div class="mt">Thu–Fri · Appointment</div></div>
+                </div>
+                <div class="chips">
+                  <span class="chip">Check coverage</span>
+                  <span class="chip">Notify managers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-cap">
+          <h4>It takes the next step</h4>
+          <p>Every answer comes with the actions that usually follow it, one tap away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODULES ================= -->
+<section class="band band-grey" id="modules">
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="eyebrow">Modules</p>
+      <h2 class="display">Four modules. One platform.</h2>
+      <p class="lead">Recruitment and Time Tracking are live today. Onboarding and Performance Management are on the way — and every module shares the same data, the same permissions, and the same AI.</p>
+    </div>
+
+    <div class="mod-grid">
+      <a class="mod rv" href="#recruitment">
+        <span class="mod-status live"><span class="d"></span>Available now</span>
+        <h4>Recruitment</h4>
+        <p>A full ATS — post jobs to a branded careers page, track candidates through every stage, and push your hire straight into the HRIS without re-entering a thing.</p>
+      </a>
+      <a class="mod rv" href="#time">
+        <span class="mod-status live"><span class="d"></span>Available now</span>
+        <h4>Time Tracking</h4>
+        <p>Scheduling, clock in and clock out, and paid time off tracking — one timeline per employee, totalled and ready for payroll.</p>
+      </a>
+      <div class="mod dim rv">
+        <span class="mod-status soon"><span class="d"></span>Coming soon</span>
+        <h4>Onboarding &amp; Offboarding</h4>
+        <p>Checklists that assign themselves, chase their own follow-ups, and close the loop on both the first day and the last.</p>
+      </div>
+      <div class="mod dim rv">
+        <span class="mod-status soon"><span class="d"></span>Coming soon</span>
+        <h4>Performance Management</h4>
+        <p>Goals, reviews, and continuous feedback — tied to the recognition your team is already giving each other.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECRUITMENT ================= -->
+<section class="band" id="recruitment">
+  <div class="wrap">
+    <div class="feature">
+      <div class="f-text rv">
+        <p class="eyebrow">Recruitment · Available now</p>
+        <h3 class="display">From job post to first day.</h3>
+        <p class="lead">Publish a role to your branded careers page, watch applicants land in a visual pipeline, and move the person you hired straight into the platform — same record, no re-keying.</p>
+        <ul class="f-list">
+          <li><b>Branded careers page</b> generated from your postings</li>
+          <li><b>Visual pipeline</b> — drag candidates through every stage</li>
+          <li><b>Hired candidates become employees</b> in one click</li>
+        </ul>
+      </div>
+      <div class="f-shot rv">
+        <div class="window">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="srow">
+              <div class="sidebar">
+                <div class="sitem">Dashboard</div>
+                <div class="sitem">People</div>
+                <div class="sitem active">Recruitment</div>
+                <div class="sitem">Time Tracking</div>
+                <div class="sitem">Documents</div>
+                <div class="sitem">Kudos</div>
+                <div class="sitem">Reports</div>
+              </div>
+              <div class="scol">
+                <div class="scard">
+                  <div class="job-head">
+                    <div>
+                      <div class="jt">Senior Analyst</div>
+                      <div class="js">Full-time · Posted 12 days ago</div>
+                    </div>
+                    <span class="pill good">Live</span>
+                  </div>
+                  <div class="pipe">
+                    <div class="pcol">
+                      <div class="ph"><span>Applied</span><span>18</span></div>
+                      <div class="pcard"><div class="pn">Nadia Osman</div><div class="pr">6 yrs exp</div></div>
+                      <div class="pcard"><div class="pn">Ben Carter</div><div class="pr">4 yrs exp</div></div>
+                    </div>
+                    <div class="pcol">
+                      <div class="ph"><span>Screen</span><span>7</span></div>
+                      <div class="pcard"><div class="pn">Ravi Menon</div><div class="pr">5 yrs exp</div></div>
+                    </div>
+                    <div class="pcol">
+                      <div class="ph"><span>Interview</span><span>4</span></div>
+                      <div class="pcard"><div class="pn">Leah Fontaine</div><div class="pr">8 yrs exp</div><div class="pm"><span class="pill blue">Thu 2pm</span></div></div>
+                    </div>
+                    <div class="pcol">
+                      <div class="ph"><span>Offer</span><span>1</span></div>
+                      <div class="pcard"><div class="pn">Priya Nair</div><div class="pr">7 yrs exp</div><div class="pm"><span class="pill good">Accepted</span></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="scard">
+                  <h4>Priya Nair — offer accepted <span class="pill blue">Convert to employee</span></h4>
+                  <div style="font-size:9.5px;color:var(--m-muted);">Profile, documents, and start date carry over automatically.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIME TRACKING ================= -->
+<section class="band band-grey" id="time">
+  <div class="wrap">
+    <div class="feature flip">
+      <div class="f-text rv">
+        <p class="eyebrow">Time Tracking · Available now</p>
+        <h3 class="display">Scheduled, clocked, and counted.</h3>
+        <p class="lead">Build the schedule, let your team clock in and out, and track paid time off against it — all on one timeline, already totalled when payroll comes around.</p>
+        <ul class="f-list">
+          <li><b>Scheduling</b> — build and publish shifts by week</li>
+          <li><b>Clock in / clock out</b> with live hours per employee</li>
+          <li><b>Paid time off tracking</b> against real balances</li>
+        </ul>
+      </div>
+      <div class="f-shot rv">
+        <div class="window">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="srow">
+              <div class="sidebar">
+                <div class="sitem">Dashboard</div>
+                <div class="sitem">People</div>
+                <div class="sitem">Recruitment</div>
+                <div class="sitem active">Time Tracking</div>
+                <div class="sitem">Documents</div>
+                <div class="sitem">Kudos</div>
+                <div class="sitem">Reports</div>
+              </div>
+              <div class="scol">
+                <div class="scard">
+                  <h4>Today <span class="pill good">Clocked in</span></h4>
+                  <div class="clock-row">
+                    <span class="clock-time">6:42</span>
+                    <span style="font-size:9px;color:var(--m-muted);">since 8:03 AM</span>
+                    <span class="clock-btn out" style="margin-left:auto;">Clock out</span>
+                  </div>
+                </div>
+                <div class="scard">
+                  <h4>Week of Sep 16</h4>
+                  <div class="sched">
+                    <div></div>
+                    <div class="hd">M</div><div class="hd">T</div><div class="hd">W</div><div class="hd">T</div><div class="hd">F</div>
+                    <div class="rl"><span class="avatar sm" style="background:#0071E3;">AC</span>Alex</div>
+                    <div class="cell"><div class="shift">9–5</div></div>
+                    <div class="cell"><div class="shift">9–5</div></div>
+                    <div class="cell"><div class="shift">9–5</div></div>
+                    <div class="cell"><div class="shift pto">PTO</div></div>
+                    <div class="cell"><div class="shift pto">PTO</div></div>
+                    <div class="rl"><span class="avatar sm" style="background:#6E3BD1;">DK</span>Dana</div>
+                    <div class="cell"><div class="shift">8–4</div></div>
+                    <div class="cell"><div class="shift">8–4</div></div>
+                    <div class="cell"><div class="shift">8–4</div></div>
+                    <div class="cell"><div class="shift">8–4</div></div>
+                    <div class="cell"><div class="shift off">Off</div></div>
+                    <div class="rl"><span class="avatar sm" style="background:#00875A;">JR</span>James</div>
+                    <div class="cell"><div class="shift">10–6</div></div>
+                    <div class="cell"><div class="shift">10–6</div></div>
+                    <div class="cell"><div class="shift off">Off</div></div>
+                    <div class="cell"><div class="shift">10–6</div></div>
+                    <div class="cell"><div class="shift">10–6</div></div>
+                  </div>
+                </div>
+                <div class="scard">
+                  <h4>Time off balances</h4>
+                  <div class="bal-row">
+                    <div class="bal"><b>12.5</b><span>Vacation</span></div>
+                    <div class="bal"><b>4.0</b><span>Sick</span></div>
+                    <div class="bal"><b>2.0</b><span>Personal</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOCUMENTS ================= -->
+<section class="band band-black" id="documents">
+  <div class="wrap">
+    <div class="feature">
+      <div class="f-text rv">
+        <p class="eyebrow">Documents &amp; E-Signatures</p>
+        <h3 class="display">One document.<br>Every signature.</h3>
+        <p class="lead">Assign multiple independent signers to a single document and track each one separately. Most HR platforms can't do this. Ours was built for it.</p>
+        <ul class="f-list">
+          <li><b>Multi-party signing</b> — a genuine differentiator</li>
+          <li><b>Independent status</b> per signer, not one all-or-nothing flag</li>
+          <li><b>Full audit trail</b> with a timestamp on every signature</li>
+        </ul>
+      </div>
+      <div class="f-shot rv">
+        <div class="window window-on-dark">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="srow">
+              <div class="sidebar">
+                <div class="sitem">Dashboard</div>
+                <div class="sitem">People</div>
+                <div class="sitem">Recruitment</div>
+                <div class="sitem">Time Tracking</div>
+                <div class="sitem active">Documents</div>
+                <div class="sitem">Kudos</div>
+                <div class="sitem">Reports</div>
+              </div>
+              <div class="scol">
+                <div class="scard">
+                  <div class="doc-head">
+                    <div class="doc-icon"></div>
+                    <div class="doc-meta">
+                      <div class="dt">Employment Agreement</div>
+                      <div class="ds">Sent Sep 12 · 3 signers required</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;">
+                    <span>Signature progress</span><span class="mut">2 of 3 complete</span>
+                  </div>
+                  <div class="sig-track"><div class="sig-fill" style="width:66.6%"></div></div>
+                  <div class="signer">
+                    <div class="avatar" style="background:#0071E3;">MT</div>
+                    <div class="info"><b>Marcus Thorne</b><small>Chief Executive Officer</small></div>
+                    <span class="pill good">Signed</span>
+                  </div>
+                  <div class="signer">
+                    <div class="avatar" style="background:#6E3BD1;">SM</div>
+                    <div class="info"><b>Sarah Mitchell</b><small>Director of People</small></div>
+                    <span class="pill good">Signed</span>
+                  </div>
+                  <div class="signer">
+                    <div class="avatar" style="background:#8E8E93;">PN</div>
+                    <div class="info"><b>Priya Nair</b><small>Senior Analyst</small></div>
+                    <span class="pill warn">Pending</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KUDOS ================= -->
+<section class="band">
+  <div class="wrap">
+    <div class="feature flip">
+      <div class="f-text rv">
+        <p class="eyebrow">Recognition</p>
+        <h3 class="display">Praise that doesn't get lost.</h3>
+        <p class="lead">Lightweight kudos tied to your company values, visible on everyone's dashboard. No separate app, no friction — recognition in the place your team already works.</p>
+        <ul class="f-list">
+          <li><b>Tied to a value</b> on every single shout-out</li>
+          <li><b>Visible company-wide</b> so recognition compounds</li>
+          <li><b>Feeds performance reviews</b> when that module lands</li>
+        </ul>
+      </div>
+      <div class="f-shot rv">
+        <div class="window">
+          <div class="titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+            <span class="tb-name">HUMANKIND</span>
+          </div>
+          <div class="screen">
+            <div class="srow">
+              <div class="sidebar">
+                <div class="sitem">Dashboard</div>
+                <div class="sitem">People</div>
+                <div class="sitem">Recruitment</div>
+                <div class="sitem">Time Tracking</div>
+                <div class="sitem">Documents</div>
+                <div class="sitem active">Kudos</div>
+                <div class="sitem">Reports</div>
+              </div>
+              <div class="scol">
+                <div class="scard">
+                  <h4>Recent kudos <span class="pill blue">14 this week</span></h4>
+                  <div class="kudo">
+                    <div class="avatar" style="background:#0071E3;">DK</div>
+                    <div class="kt">
+                      <b>Dana Kowalski → Alex Chen</b>
+                      <p>Rebuilt the onboarding deck overnight so the client pitch could still go ahead.</p>
+                      <span class="val">Ownership</span>
+                    </div>
+                  </div>
+                  <div class="kudo">
+                    <div class="avatar" style="background:#00875A;">JR</div>
+                    <div class="kt">
+                      <b>James Rivera → Priya Nair</b>
+                      <p>Caught a reconciliation error before it reached the quarterly close.</p>
+                      <span class="val">Craft</span>
+                    </div>
+                  </div>
+                  <div class="kudo">
+                    <div class="avatar" style="background:#6E3BD1;">SM</div>
+                    <div class="kt">
+                      <b>Sarah Mitchell → Whole team</b>
+                      <p>Zero open tickets going into the long weekend. First time ever.</p>
+                      <span class="val">Together</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROLES + REPORTS ================= -->
+<section class="band band-grey">
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="eyebrow">Underneath it all</p>
+      <h2 class="display">Locked down. Ready to export.</h2>
+      <p class="lead">Granular permissions and payroll-ready reporting sit under every module — so the right people see the right data, and finance gets exactly what they asked for.</p>
+    </div>
+
+    <div class="two-up">
+      <div class="up-card rv">
+        <h4>Roles &amp; permissions</h4>
+        <p>Custom roles scoped by module, location, or individual field. Hide compensation from a manager who shouldn't see it.</p>
+        <div class="up-shot">
+          <div class="window">
+            <div class="titlebar">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+              <span class="tb-name">HUMANKIND</span>
+            </div>
+            <div class="screen">
+              <div class="scard">
+                <h4>Role — Regional Manager</h4>
+                <div class="rchips">
+                  <span class="rchip">Admin</span>
+                  <span class="rchip on">Regional Manager</span>
+                  <span class="rchip">Employee</span>
+                </div>
+                <div class="perm"><div>View team profiles<small>Scoped to assigned locations</small></div><span class="sw on"></span></div>
+                <div class="perm"><div>Approve time off<small>Direct reports only</small></div><span class="sw on"></span></div>
+                <div class="perm"><div>View compensation<small>Salary and bonus fields</small></div><span class="sw"></span></div>
+                <div class="perm"><div>Manage roles<small>Administrator capability</small></div><span class="sw"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="up-card rv">
+        <h4>Reports &amp; exports</h4>
+        <p>Filter by date, department, or location. Hours come out totalled with overtime split, one click to CSV.</p>
+        <div class="up-shot">
+          <div class="window">
+            <div class="titlebar">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <span class="tb-mark"><img src="assets/logo-white.png" alt=""></span>
+              <span class="tb-name">HUMANKIND</span>
+            </div>
+            <div class="screen">
+              <div class="scard">
+                <h4>Hours worked <span class="pill blue">Export CSV</span></h4>
+                <div class="filters">
+                  <span class="filt on">Sep 1 – 15</span>
+                  <span class="filt">All departments</span>
+                </div>
+                <table class="rtable">
+                  <tr><th>Employee</th><th style="text-align:right;">Reg</th><th style="text-align:right;">OT</th><th style="text-align:right;">Total</th></tr>
+                  <tr><td>Alex Chen</td><td class="num">75.0</td><td class="num">4.5</td><td class="num">79.5</td></tr>
+                  <tr><td>Dana Kowalski</td><td class="num">75.0</td><td class="num">0.0</td><td class="num">75.0</td></tr>
+                  <tr><td>James Rivera</td><td class="num">67.5</td><td class="num">2.0</td><td class="num">69.5</td></tr>
+                  <tr><td>Priya Nair</td><td class="num">37.5</td><td class="num">0.0</td><td class="num">37.5</td></tr>
+                </table>
+                <div class="rtotal"><span>Total · 47 employees</span><span>3,284.5 hrs</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<section class="closing">
+  <div class="wrap-narrow">
+    <div class="rv">
+      <h2 class="display">See it running on your own team.</h2>
+      <p class="lead">A 15-minute walkthrough. No commitment, no pressure — just a clean system that might give your HR team a few hundred hours back this year.</p>
+      <div class="cta-row center">
+        <a class="btn btn-blue" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+      </div>
+      <p class="note">Demo booking flow not yet wired — button opens email for now</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="foot-in">
+    <img class="foot-logo" src="assets/logo-black.png" alt="HumanKind Technologies">
+    <p>&copy; 2026 HumanKind Technologies Inc. · Built in Canada</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function boot() {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window) || reduced) {
+      Array.prototype.forEach.call(els, function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else { boot(); }
+})();
+</script>
+</body>
+</html>
