@@ -572,6 +572,110 @@ h3.display {
 .foot-logo { height: 34px; width: auto; opacity: 0.75; }
 .footer p { font-size: 13px; color: var(--ink-faint); }
 
+/* ================= DEMO MODAL ================= */
+.demo-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.demo-overlay.open { opacity: 1; pointer-events: auto; }
+.demo-modal {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%; max-width: 560px;
+  max-height: 88vh;
+  display: flex; flex-direction: column;
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s ease;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.35);
+}
+.demo-overlay.open .demo-modal { transform: none; }
+.demo-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px;
+  padding: 30px 34px 0;
+}
+.demo-head h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; margin: 6px 0 6px; }
+.demo-head p { font-size: 14.5px; color: var(--ink-soft); }
+.demo-close {
+  background: var(--grey-bg); border: none; border-radius: 50%;
+  width: 32px; height: 32px; flex: none;
+  font-size: 18px; line-height: 1; color: var(--ink-soft);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.demo-close:hover { background: var(--line); }
+.demo-progress { height: 3px; background: var(--line-soft); margin: 20px 34px 0; border-radius: 2px; overflow: hidden; }
+.demo-progress-bar { height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.3s ease; }
+.demo-body { padding: 24px 34px 8px; overflow-y: auto; }
+.demo-step { display: none; }
+.demo-step.active { display: block; }
+.demo-q { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.demo-hint { font-size: 13.5px; color: var(--ink-faint); margin-bottom: 18px; }
+.demo-field { margin-bottom: 16px; }
+.demo-field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.demo-field .opt { font-weight: 400; color: var(--ink-faint); }
+.demo-field input, .demo-field select {
+  width: 100%; font-family: var(--font); font-size: 15px;
+  padding: 11px 13px; border: 1px solid var(--line); border-radius: 10px;
+  background: #fff; color: var(--ink);
+}
+.demo-field input:focus, .demo-field select:focus { outline: none; border-color: var(--blue); }
+.demo-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.demo-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 6px; }
+.demo-check {
+  display: flex; align-items: center; gap: 9px;
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 11px 13px; font-size: 14px; cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.demo-check:hover { border-color: var(--ink-faint); }
+.demo-check input { accent-color: var(--blue); width: 16px; height: 16px; flex: none; }
+.demo-check.checked { border-color: var(--blue); background: #EBF4FE; }
+.demo-days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 18px; }
+.demo-day {
+  flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 14px; background: #fff; cursor: pointer; font-family: var(--font);
+}
+.demo-day .dwd { font-size: 11px; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; }
+.demo-day .ddn { font-size: 18px; font-weight: 700; }
+.demo-day .dmo { font-size: 10.5px; color: var(--ink-faint); }
+.demo-day.active { border-color: var(--blue); background: var(--blue); }
+.demo-day.active .dwd, .demo-day.active .ddn, .demo-day.active .dmo { color: #fff; }
+.demo-slots { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.demo-slot {
+  border: 1px solid var(--line); border-radius: 10px; padding: 12px 8px;
+  text-align: center; cursor: pointer; background: #fff; font-family: var(--font);
+}
+.demo-slot .sw { display: block; font-size: 14px; font-weight: 700; }
+.demo-slot .sh { display: block; font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+.demo-slot.active { border-color: var(--blue); background: #EBF4FE; }
+.demo-slot.active .sh { color: var(--blue); }
+.demo-error { border-color: #E0393B !important; }
+.demo-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 34px 30px; }
+.demo-back {
+  background: none; border: none; font-family: var(--font); font-size: 14.5px;
+  color: var(--ink-soft); cursor: pointer; padding: 8px 4px;
+}
+.demo-back:hover { color: var(--ink); }
+.demo-success { text-align: center; padding: 20px 0 14px; }
+.demo-success .check {
+  width: 56px; height: 56px; border-radius: 50%; background: #E6F5EF; color: #00875A;
+  display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700;
+  margin: 0 auto 18px;
+}
+.demo-success h3 { font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+.demo-success p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+@media (max-width: 560px) {
+  .demo-head, .demo-body, .demo-foot { padding-left: 22px; padding-right: 22px; }
+  .demo-progress { margin-left: 22px; margin-right: 22px; }
+  .demo-row2, .demo-check-grid { grid-template-columns: 1fr; }
+  .demo-slots { grid-template-columns: 1fr 1fr; }
+}
+
 /* ================= REVEAL ================= */
 .rv { opacity: 0; transform: translateY(22px); transition: opacity 0.8s cubic-bezier(0.28,0.11,0.32,1), transform 0.8s cubic-bezier(0.28,0.11,0.32,1); }
 .rv.in { opacity: 1; transform: none; }
@@ -632,7 +736,7 @@ h3.display {
       <a href="#time">Time Tracking</a>
       <a href="#documents">Documents</a>
     </div>
-    <a class="btn btn-blue btn-sm" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+    <button type="button" class="btn btn-blue btn-sm" data-open-demo>Request a Demo</button>
   </div>
 </nav>
 
@@ -642,10 +746,9 @@ h3.display {
   <h1 class="display">One system.<br>The HUMANKIND way to HR.</h1>
   <p class="lead">Recruitment, time tracking, documents, and people — unified in one AI-enabled platform built for growing Canadian businesses.</p>
   <div class="cta-row center">
-    <a class="btn btn-blue" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+    <button type="button" class="btn btn-blue" data-open-demo>Request a Demo</button>
     <a class="link link-lg" href="#modules">See what's included</a>
   </div>
-  <p class="note">Demo booking flow not yet wired — button opens email for now</p>
 
   <div class="hero-shot rv">
     <div class="window">
@@ -1235,9 +1338,8 @@ h3.display {
       <h2 class="display">See it running on your own team.</h2>
       <p class="lead">A 15-minute walkthrough. No commitment, no pressure — just a clean system that might give your HR team a few hundred hours back this year.</p>
       <div class="cta-row center">
-        <a class="btn btn-blue" href="mailto:hello@humankindtechnologies.com?subject=Demo%20Request">Request a Demo</a>
+        <button type="button" class="btn btn-blue" data-open-demo>Request a Demo</button>
       </div>
-      <p class="note">Demo booking flow not yet wired — button opens email for now</p>
     </div>
   </div>
 </section>
@@ -1249,6 +1351,308 @@ h3.display {
     <p>&copy; 2026 HumanKind Technologies Inc. · Built in Canada</p>
   </div>
 </footer>
+
+<!-- ================= DEMO MODAL ================= -->
+<div class="demo-overlay" id="demoOverlay">
+  <div class="demo-modal" role="dialog" aria-modal="true" aria-label="Request a demo">
+    <div class="demo-head">
+      <div>
+        <p class="eyebrow" style="margin-bottom:2px;">Request a Demo</p>
+        <h3 id="demoTitle">Tell us about your team</h3>
+        <p id="demoSubtitle">A few quick questions so we come prepared.</p>
+      </div>
+      <button type="button" class="demo-close" id="demoClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="demo-progress"><div class="demo-progress-bar" id="demoBar"></div></div>
+    <div class="demo-body">
+
+      <!-- step 0: company + contact -->
+      <div class="demo-step active" data-step="0">
+        <p class="demo-q">Your company</p>
+        <p class="demo-hint">So we know who we're meeting.</p>
+        <div class="demo-field">
+          <label for="demoCompany">Company name</label>
+          <input type="text" id="demoCompany" placeholder="Acme Inc.">
+        </div>
+        <div class="demo-field">
+          <label for="demoEmployees">Number of employees</label>
+          <select id="demoEmployees">
+            <option value="">Select a range</option>
+            <option>1–10</option>
+            <option>11–25</option>
+            <option>26–50</option>
+            <option>51–100</option>
+            <option>101–250</option>
+            <option>250+</option>
+          </select>
+        </div>
+        <div class="demo-row2">
+          <div class="demo-field">
+            <label for="demoName">Your name</label>
+            <input type="text" id="demoName" placeholder="Jane Doe">
+          </div>
+          <div class="demo-field">
+            <label for="demoEmail">Email</label>
+            <input type="email" id="demoEmail" placeholder="jane@company.com">
+          </div>
+        </div>
+        <div class="demo-field">
+          <label for="demoPhone">Phone <span class="opt">(optional)</span></label>
+          <input type="tel" id="demoPhone" placeholder="(902) 555-0100">
+        </div>
+      </div>
+
+      <!-- step 1: interests -->
+      <div class="demo-step" data-step="1">
+        <p class="demo-q">What are you interested in?</p>
+        <p class="demo-hint">Select whatever fits — this just helps us prepare. Optional.</p>
+        <div class="demo-check-grid" id="demoInterests">
+          <label class="demo-check"><input type="checkbox" value="Recruitment / ATS"><span>Recruitment / ATS</span></label>
+          <label class="demo-check"><input type="checkbox" value="Time Tracking"><span>Time Tracking</span></label>
+          <label class="demo-check"><input type="checkbox" value="Documents &amp; E-Signatures"><span>Documents &amp; E-Signatures</span></label>
+          <label class="demo-check"><input type="checkbox" value="Performance Management"><span>Performance Management</span></label>
+          <label class="demo-check"><input type="checkbox" value="Kudos / Recognition"><span>Kudos / Recognition</span></label>
+          <label class="demo-check"><input type="checkbox" value="AI Assistant"><span>AI Assistant</span></label>
+          <label class="demo-check"><input type="checkbox" value="Roles &amp; Reports"><span>Roles &amp; Reports</span></label>
+          <label class="demo-check"><input type="checkbox" value="Onboarding (coming soon)"><span>Onboarding (coming soon)</span></label>
+        </div>
+      </div>
+
+      <!-- step 2: day + time -->
+      <div class="demo-step" data-step="2">
+        <p class="demo-q">Pick a day and time</p>
+        <p class="demo-hint">We'll reach out then to confirm — by phone or email.</p>
+        <div class="demo-days" id="demoDays"></div>
+        <div class="demo-slots" id="demoSlots"></div>
+      </div>
+
+      <!-- step 3: success -->
+      <div class="demo-step" data-step="3">
+        <div class="demo-success">
+          <div class="check">&check;</div>
+          <h3 id="demoSuccessTitle">You're all set!</h3>
+          <p id="demoSuccessMsg">We'll be in touch shortly.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="demo-foot" id="demoFoot"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById('demoOverlay');
+  var modal = overlay.querySelector('.demo-modal');
+  var bar = document.getElementById('demoBar');
+  var foot = document.getElementById('demoFoot');
+  var title = document.getElementById('demoTitle');
+  var subtitle = document.getElementById('demoSubtitle');
+  var progressWrap = overlay.querySelector('.demo-progress');
+  var daysWrap = document.getElementById('demoDays');
+  var slotsWrap = document.getElementById('demoSlots');
+  var interestsWrap = document.getElementById('demoInterests');
+
+  var STEP_COPY = [
+    { title: 'Tell us about your team', subtitle: 'A few quick questions so we come prepared.' },
+    { title: "What are you interested in?", subtitle: 'Optional — helps us tailor the walkthrough.' },
+    { title: 'Pick a day and time', subtitle: "We'll reach out then to confirm." },
+  ];
+  var TOTAL_STEPS = 3;
+  var SLOTS = [
+    { label: 'Morning', hint: '8 – 11am' },
+    { label: 'Afternoon', hint: '11am – 4pm' },
+    { label: 'Evening', hint: '4 – 7pm' },
+  ];
+
+  var step = 0;
+  var bookingDays = [];
+  var selDay = 0;
+  var selSlot = null;
+
+  function buildDays() {
+    var days = [];
+    var cur = new Date();
+    while (days.length < 5) {
+      cur.setDate(cur.getDate() + 1);
+      var wd = cur.getDay();
+      if (wd !== 0 && wd !== 6) days.push(new Date(cur));
+    }
+    bookingDays = days;
+    selDay = 0;
+    selSlot = null;
+    daysWrap.innerHTML = days.map(function (dt, i) {
+      return '<button type="button" class="demo-day' + (i === 0 ? ' active' : '') + '" data-day="' + i + '">' +
+        '<span class="dwd">' + dt.toLocaleDateString('en-US', { weekday: 'short' }) + '</span>' +
+        '<span class="ddn">' + dt.getDate() + '</span>' +
+        '<span class="dmo">' + dt.toLocaleDateString('en-US', { month: 'short' }) + '</span>' +
+      '</button>';
+    }).join('');
+    renderSlots();
+  }
+
+  function renderSlots() {
+    slotsWrap.innerHTML = SLOTS.map(function (s) {
+      return '<button type="button" class="demo-slot" data-slot="' + s.label + '">' +
+        '<span class="sw">' + s.label + '</span><span class="sh">' + s.hint + '</span></button>';
+    }).join('');
+    selSlot = null;
+  }
+
+  daysWrap.addEventListener('click', function (e) {
+    var btn = e.target.closest('.demo-day');
+    if (!btn) return;
+    selDay = +btn.dataset.day;
+    Array.prototype.forEach.call(daysWrap.children, function (c) { c.classList.toggle('active', c === btn); });
+    renderSlots();
+  });
+
+  slotsWrap.addEventListener('click', function (e) {
+    var btn = e.target.closest('.demo-slot');
+    if (!btn) return;
+    selSlot = btn.dataset.slot;
+    Array.prototype.forEach.call(slotsWrap.children, function (c) { c.classList.toggle('active', c === btn); });
+  });
+
+  interestsWrap.addEventListener('change', function (e) {
+    var label = e.target.closest('.demo-check');
+    if (label) label.classList.toggle('checked', e.target.checked);
+  });
+
+  function selectedInterests() {
+    return Array.prototype.map.call(interestsWrap.querySelectorAll('input:checked'), function (i) { return i.value; });
+  }
+
+  function clearError(el) { el.classList.remove('demo-error'); }
+
+  function render() {
+    Array.prototype.forEach.call(overlay.querySelectorAll('.demo-step'), function (s) {
+      s.classList.toggle('active', +s.dataset.step === step);
+    });
+    progressWrap.style.display = step >= TOTAL_STEPS ? 'none' : 'block';
+    bar.style.width = Math.min(((step + 1) / TOTAL_STEPS) * 100, 100) + '%';
+
+    if (step < TOTAL_STEPS) {
+      title.textContent = STEP_COPY[step].title;
+      subtitle.textContent = STEP_COPY[step].subtitle;
+    }
+
+    var html = '';
+    if (step === 0) html = '<span></span><button type="button" class="btn btn-blue" data-act="next">Continue</button>';
+    else if (step === 1) html = '<button type="button" class="demo-back" data-act="back">&larr; Back</button><button type="button" class="btn btn-blue" data-act="next">Continue</button>';
+    else if (step === 2) html = '<button type="button" class="demo-back" data-act="back">&larr; Back</button><button type="button" class="btn btn-blue" data-act="submit">Confirm request</button>';
+    else html = '<span></span><button type="button" class="btn btn-blue" data-act="close">Done</button>';
+    foot.innerHTML = html;
+  }
+
+  function shake(el) {
+    el.animate([{ transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'none' }], 250);
+  }
+
+  function open() {
+    step = 0;
+    buildDays();
+    document.getElementById('demoCompany').value = '';
+    document.getElementById('demoEmployees').value = '';
+    document.getElementById('demoName').value = '';
+    document.getElementById('demoEmail').value = '';
+    document.getElementById('demoPhone').value = '';
+    Array.prototype.forEach.call(interestsWrap.querySelectorAll('input'), function (i) { i.checked = false; });
+    Array.prototype.forEach.call(interestsWrap.querySelectorAll('.demo-check'), function (l) { l.classList.remove('checked'); });
+    render();
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  foot.addEventListener('click', function (e) {
+    var act = e.target.getAttribute('data-act');
+    if (!act) return;
+
+    if (act === 'close') return close();
+    if (act === 'back') { step--; return render(); }
+
+    if (act === 'next') {
+      if (step === 0) {
+        var company = document.getElementById('demoCompany');
+        var employees = document.getElementById('demoEmployees');
+        var name = document.getElementById('demoName');
+        var email = document.getElementById('demoEmail');
+        var ok = true;
+        [company, name, email].forEach(function (f) {
+          if (!f.value.trim()) { f.classList.add('demo-error'); ok = false; } else { clearError(f); }
+        });
+        if (!employees.value) { employees.classList.add('demo-error'); ok = false; } else { clearError(employees); }
+        if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          email.classList.add('demo-error'); ok = false;
+        }
+        if (!ok) { shake(modal); return; }
+      }
+      step++;
+      return render();
+    }
+
+    if (act === 'submit') {
+      if (!selSlot) { shake(slotsWrap); return; }
+
+      var submitBtn = e.target;
+      var dt = bookingDays[selDay];
+      var dayLong = dt.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      var companyVal = document.getElementById('demoCompany').value.trim();
+      var employeesVal = document.getElementById('demoEmployees').value;
+      var nameVal = document.getElementById('demoName').value.trim();
+      var emailVal = document.getElementById('demoEmail').value.trim();
+      var phoneVal = document.getElementById('demoPhone').value.trim();
+      var interestsVal = selectedInterests();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('/api/request-demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nameVal,
+          email: emailVal,
+          phone: phoneVal,
+          company: companyVal,
+          employees: employeesVal,
+          interests: interestsVal,
+          preferredDay: dayLong,
+          preferredWindow: selSlot,
+        }),
+      })
+        .then(function (res) { if (!res.ok) throw new Error('Request failed'); return res.json().catch(function () { return {}; }); })
+        .then(function () {
+          document.getElementById('demoSuccessTitle').textContent = "You're all set!";
+          document.getElementById('demoSuccessMsg').innerHTML = 'Thanks, ' + nameVal.split(' ')[0] + ' — we\'ll reach out <strong>' + dayLong + '</strong>, ' + selSlot.toLowerCase() + ', by phone or email.';
+          step = 3; render();
+        })
+        .catch(function () {
+          document.getElementById('demoSuccessTitle').textContent = 'Something went wrong';
+          document.getElementById('demoSuccessMsg').innerHTML = 'We couldn\'t send your request. Please email us directly at <strong>info@humankindhrsolutions.com</strong>.';
+          step = 3; render();
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Confirm request';
+        });
+    }
+  });
+
+  document.getElementById('demoClose').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
+
+  document.querySelectorAll('[data-open-demo]').forEach(function (btn) {
+    btn.addEventListener('click', open);
+  });
+})();
+</script>
 
 <script>
 (function () {
